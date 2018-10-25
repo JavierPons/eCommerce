@@ -59,7 +59,7 @@ export default class AddItems extends React.Component{
                 <h5>Price</h5>
                 <input type='number' ref='input2' placeholder='Add price of product'/>
                 <h5>Imagen</h5>
-                <UploadImages/>
+                <UploadImages  callBackFromParent={this.myCallback}/>
                 <button type='submit'> + Add product</button>
                 
             </form>
