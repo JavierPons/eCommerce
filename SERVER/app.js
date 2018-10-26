@@ -2,7 +2,7 @@ var
     express       = require('express'),
     path          = require('path'),
     bodyParser    = require('body-parser'),
-    mongoose		  = require('mongoose'),
+    mongoose	  = require('mongoose'),
     indexRouter   = require('./routes/index'),
     usersRouter   = require('./routes/users'),
     productsRouter = require('./routes/products'),

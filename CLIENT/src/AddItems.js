@@ -32,7 +32,7 @@ export default class AddItems extends React.Component{
             body: JSON.stringify({
               product:product, 
               price: price,
-
+              
              // a:'something',
              // b:'something b ',
             }),
@@ -59,7 +59,7 @@ export default class AddItems extends React.Component{
                 <h5>Price</h5>
                 <input type='number' ref='input2' placeholder='Add price of product'/>
                 <h5>Imagen</h5>
-                <UploadImages  callBackFromParent={this.myCallback}/>
+                <UploadImages getPhoto={this.handleSubmit}/>
                 <button type='submit'> + Add product</button>
                 
             </form>

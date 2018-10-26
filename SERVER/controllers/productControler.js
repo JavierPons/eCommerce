@@ -3,20 +3,20 @@ const Product = require('../models/Product');
 class ProductControler{
                     // ADD PRODUCT
     async add(req, res){
+       
         return res.send('========== We got here! ==========')
-        let {product_id, product_name, price} = req.body // when clickOn Buy buttom in react. How to connect this with UI?
+       
+        let { product_id, product_name, price,img } = req.body // when clickOn Buy buttom in react. How to connect this with UI?
         
             try{
                 const done = await Product.create({
-                    product_id:product_id, 
+                    _id:'', 
                     product_name:product_name,
                     price: price,
-                    img:{
-                        public_id:'',
-                        original_filename:''
-                    }
+                    img: img
                 })
                 res.send({done})
+                
             }
             catch(e){
                 res.send({e})
