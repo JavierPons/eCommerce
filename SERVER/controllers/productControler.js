@@ -10,7 +10,7 @@ class ProductControler{
         
             try{
                 const done = await Product.create({
-                   
+                    _id: id,
                     product_name:product_name,
                     price: price,
                     img: img
