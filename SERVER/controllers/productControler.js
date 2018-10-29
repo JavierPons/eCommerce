@@ -4,9 +4,9 @@ class ProductControler{
                     // ADD PRODUCT
     async add(req, res){
        
+       // return res.send('========== We got here! ==========')
        
-       
-        let {  product_name, price,img } = req.body // when clickOn Buy buttom in react. How to connect this with UI?
+        let {  product_name, price,img, id } = req.body // when clickOn Buy buttom in react. How to connect this with UI?
         
             try{
                 const done = await Product.create({
@@ -23,7 +23,7 @@ class ProductControler{
                 console.log('e',e)
                 res.send({e})
             }
-           // return res.send('========== We got here! ==========')
+           
     }
 
                     //DELETE PRODUCT
