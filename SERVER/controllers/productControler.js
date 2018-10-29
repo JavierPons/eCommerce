@@ -6,11 +6,10 @@ class ProductControler{
        
        // return res.send('========== We got here! ==========')
        
-        let {  product_name, price,img, id } = req.body // when clickOn Buy buttom in react. How to connect this with UI?
+        let {  product_name, price,img } = req.body 
         
             try{
                 const done = await Product.create({
-                    _id: id,
                     product_name:product_name,
                     price: price,
                     img: img
