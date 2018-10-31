@@ -12,7 +12,7 @@ export default class UploadImages extends React.Component{
 
 	uploadWidget = () => {
 		
-
+		console.log('=====>>>',this.props)
         window.cloudinary.openUploadWidget({ 
         	cloud_name: 'antonello', 
         	upload_preset: 'ecommerce', 
@@ -20,20 +20,21 @@ export default class UploadImages extends React.Component{
 			stylesheet:widgetStyle
         },
             (error, result)=> {
-				debugger
+				//debugger
                 if(error){
-					debugger
+				//	debugger
                 }else{
 					console.log(result);
-					fetch('http://localhost:3001/products/add', {
+					fetch('http://localhost:3001/products/update', {
 	 					method: 'POST',
 	 					headers: {
 						 Accept: 'application/json',
 	 					  'Content-Type': 'application/json'
 					},
 	 					body: JSON.stringify({
-							photo_url:result[0].secure_url, 
-							public_id:result[0].public_id				   			   
+							image:result[0].secure_url, 
+							public_id:result[0].public_id,
+							productID:this.props.productID				   			   
 	 					}),
 						 }).then((response)=> {
 								if(!response.ok){

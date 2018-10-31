@@ -8,7 +8,6 @@ export default class AddItems extends React.Component{
         super()
         this.state = {
                 product:'',
-                img:'',
                 price:0
         }
     }
@@ -22,7 +21,7 @@ export default class AddItems extends React.Component{
         this.setState({price})
         this.refs.input1.value =''
         this.refs.input2.value = ''
-
+        //debugger
         fetch('http://localhost:3001/products/add', {
             method: 'POST',
             headers: {
@@ -30,7 +29,7 @@ export default class AddItems extends React.Component{
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              product:product, 
+              product_name:product, 
               price: price,
               
              // a:'something',
@@ -38,14 +37,14 @@ export default class AddItems extends React.Component{
             }),
           }).then((response) => response.json())
               .then((responseJson) => {
-                  debugger
-                  
                 if(responseJson.error){
-               
                 }else {
+                   // debugger
+                    const productID= responseJson.done._id;
+                    this.setState({productID})
 				}
             }).catch((e)=>{
-                
+                debugger
             })
 
 
@@ -53,17 +52,23 @@ export default class AddItems extends React.Component{
         
     render(){
         return(
+            <div>
             <form onSubmit={this.handleSubmit.bind(this)} style={{display:'flex', justifyContent: 'center', flexFlow: 'row wrap', justifyContent:'center'}}>
                 <h5>Product</h5>
                 <input type='text' ref='input1' placeholder='Name of product'/>
                 <h5>Price</h5>
                 <input type='number' ref='input2' placeholder='Add price of product'/>
                 <h5>Imagen</h5>
-                <UploadImages getPhoto={this.handleSubmit}/>
+                
                 <button type='submit'> + Add product</button>
                 
             </form>
-        )
+
+                <UploadImages 
+                productID ={this.state.productID}
+                getPhoto={this.handleSubmit} />
+                </div>
+                        )
     }
 
 
