@@ -1,5 +1,6 @@
 import React from 'react';
 import UploadImages from './UploadImages';
+import {Redirect} from 'react-router-dom';
 
 
 
@@ -10,6 +11,9 @@ export default class AddItems extends React.Component{
                 product:'',
                 price:0
         }
+    }
+    handleNewPage (){
+        return <Redirect to='./AddPhoto.js'/>
     }
 
     handleSubmit = (e) => {
@@ -60,7 +64,7 @@ export default class AddItems extends React.Component{
                 <input type='number' ref='input2' placeholder='Add price of product'/>
                 <h5>Imagen</h5>
                 
-                <button type='submit'> + Add product</button>
+                <button type='submit' onClick={this.handleNewPage}> + Add product</button>
                 
             </form>
 
