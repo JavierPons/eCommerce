@@ -3,6 +3,7 @@ import Register from './Register'
 import Login from './Login'
 import AdminComp from './AdminComp'
 import NavBarNPM from 'reactjs-navigation'
+import { Link } from 'react-router-dom'
 import {
   BrowserRouter as Router,
 	Route

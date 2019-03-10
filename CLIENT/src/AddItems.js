@@ -1,7 +1,7 @@
 import React from 'react';
 import UploadImages from './UploadImages';
-import {Redirect} from 'react-router-dom';
-
+import { Redirect } from 'react-router-dom';
+import Background from './Image/cesta.jpg';
 
 
 export default class AddItems extends React.Component{
@@ -12,9 +12,9 @@ export default class AddItems extends React.Component{
                 price:0
         }
     }
-    handleNewPage (){
-        return <Redirect to='./AddPhoto.js'/>
-    }
+    // handleNewPage (){
+    //     return <Redirect to='./AddPhoto.js'/>
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -53,24 +53,25 @@ export default class AddItems extends React.Component{
 
 
      }
+    
         
     render(){
+        let img = './Image/cesta.jpg'
         return(
-            <div>
-            <form onSubmit={this.handleSubmit.bind(this)} style={{display:'flex', justifyContent: 'center', flexFlow: 'row wrap', justifyContent:'center'}}>
-                <h5>Product</h5>
-                <input type='text' ref='input1' placeholder='Name of product'/>
-                <h5>Price</h5>
-                <input type='number' ref='input2' placeholder='Add price of product'/>
-                <h5>Imagen</h5>
-                
-                <button type='submit' onClick={this.handleNewPage}> + Add product</button>
-                
-            </form>
-
+            <div style={{display:'flex', justifyContent: 'center', flexFlow: 'row wrap', justifyContent:'center'}}>
+            <form onSubmit={this.handleSubmit.bind(this)} style={{backgroundColor:'rgba(255, 255, 128, .5)', padding:"50px"}}>
+                <h5 style={{paddingRight:"20px"}}>Product</h5>
+                <input type='text' ref='input1' placeholder='Product name'/>
+                <h5 style={{paddingRight:"20px"}}>Price</h5>
+                <input type='number' ref='input2' placeholder='Product price'/>
+                <h5>Add Imagen</h5>
                 <UploadImages 
                 productID ={this.state.productID}
                 getPhoto={this.handleSubmit} />
+                 <button type='submit' oncl> + Add product</button>
+            </form>
+
+               
                 </div>
                         )
     }
