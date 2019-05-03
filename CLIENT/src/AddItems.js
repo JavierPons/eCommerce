@@ -1,7 +1,7 @@
 import React from 'react';
 import UploadImages from './UploadImages';
 import { Redirect } from 'react-router-dom';
-import Background from './Image/cesta.jpg';
+
 
 
 export default class AddItems extends React.Component{
@@ -48,7 +48,7 @@ export default class AddItems extends React.Component{
                     this.setState({productID})
 				}
             }).catch((e)=>{
-                debugger
+                //debugger
             })
 
 
@@ -56,7 +56,7 @@ export default class AddItems extends React.Component{
     
         
     render(){
-        let img = './Image/cesta.jpg'
+        //let img = './Image/cesta.jpg'
         return(
             <div style={{display:'flex', justifyContent: 'center', flexFlow: 'row wrap', justifyContent:'center'}}>
             <form onSubmit={this.handleSubmit.bind(this)} style={{backgroundColor:'rgba(255, 255, 128, .5)', padding:"50px"}}>

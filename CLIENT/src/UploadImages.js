@@ -50,7 +50,7 @@ export default class UploadImages extends React.Component{
 								
 	 							console.log('===>',responseJson, '<====')
 	 					}).catch((e)=>{
-	 						debugger
+	 						//debugger
 	 					})
             	}
 			})
