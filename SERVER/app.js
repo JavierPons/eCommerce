@@ -6,7 +6,6 @@ var
     indexRouter   = require('./routes/index'),
     usersRouter   = require('./routes/users'),
     productsRouter = require('./routes/products'),
-    banana        = require('./routes/banana'),
     app           = express();
     mongoose.connect('mongodb://localhost/auth_example_DB', ()=>
     console.log('connected to mongodb'));
